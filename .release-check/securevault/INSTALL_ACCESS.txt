@@ -1,0 +1,5 @@
+SecureVault installation access token
+
+9b6fd4498f7b19580da42f7ef901fce9501aed9989409c4105b53bc28de90ddd
+
+Enter this token at /install. Delete this file after installation.

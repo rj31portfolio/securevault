@@ -1,0 +1,3 @@
+@extends('layouts.guest')
+@section('title','Account status')
+@section('content')<span class="eyebrow">ACCOUNT STATUS</span><h2>{{ ucfirst($status) }} account</h2><p class="muted">{{ $status==='pending'?'Your administrator needs to approve your account before you can access the vault.':'Your account currently cannot access the vault. Contact your administrator.' }}</p>@if(!auth()->user()->hasVerifiedEmail())<a href="{{ route('verification.notice') }}" class="btn btn-primary full">Verify your email</a>@endif<form action="{{ route('logout') }}" method="post">@csrf<button class="btn btn-outline full">Sign out</button></form>@endsection

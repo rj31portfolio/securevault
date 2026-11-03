@@ -1,0 +1,16 @@
+# Fallback for hosts that cannot set the document root to public/.
+# Apache 2.4 + mod_rewrite is REQUIRED. Test before accepting private data.
+Options -Indexes
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^(?:app|bootstrap|config|database|resources|routes|storage|tests|vendor|tools|deployment)(?:/|$) - [F,L,NC]
+RewriteRule (^|/)\. - [F,L]
+RewriteRule ^(?:artisan|composer\.(?:json|lock)|package.*|phpunit.*|.*\.(?:md|txt|xml|json|log|zip|sql|bak|env))$ - [F,L,NC]
+RewriteCond %{THE_REQUEST} \s/+public/ [NC]
+RewriteRule ^public/ - [F,L]
+RewriteRule ^public/ - [L]
+RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+<FilesMatch "(?i)(^\.|\.(?:env|log|sql|zip|bak|md|txt|xml|json)$|^artisan$)">
+Require all denied
+</FilesMatch>

@@ -1,0 +1,3 @@
+@extends('layouts.app')
+@section('title','Categories')
+@section('content')<div class="page-heading"><div><span class="eyebrow">A PLACE FOR EVERYTHING</span><h1>Categories<span class="orange">.</span></h1><p class="muted">Find what you need, a little faster.</p></div></div><div class="category-grid">@foreach($categories as $category)<a class="panel category-card" href="{{ route('files.index',['category'=>$category->id]) }}"><span class="stat-icon">▦</span><h3>{{ $category->name }}</h3><p>{{ $category->files_count }} files</p><small class="muted">{{ implode(', ',$category->allowed_extensions) }}</small><span class="category-arrow">→</span></a>@endforeach</div>@endsection

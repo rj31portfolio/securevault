@@ -1,0 +1,3 @@
+@extends('layouts.guest')
+@section('title','Installation complete')
+@section('content')<span class="eyebrow">STEP 8 OF 8 · COMPLETE</span><h2>Your vault is ready.</h2><p class="muted">Installation completed and the installer is locked. Keep your application key and backup encryption key safe.</p><a class="btn btn-primary full" href="{{ url('/login') }}">Admin & user login →</a><a class="btn btn-outline full" href="{{ url('/register') }}">User registration</a><a class="btn btn-outline full" href="{{ url('/') }}">Website home</a><p class="auth-note">Delete INSTALL_ACCESS.txt from the server after saving a private copy.</p>@endsection
